@@ -1,6 +1,6 @@
 -- Insert data into EMPLOYEE Table
---INSERT INTO EMPLOYEE VALUES (1, 'Raman Hari','IT');
---INSERT INTO EMPLOYEE VALUES (2, 'Sahil Shah','HR');
---INSERT INTO EMPLOYEE VALUES (3, 'Akshay Shaligram','OPs');
---INSERT INTO EMPLOYEE VALUES (4, 'Akshata Joshi','IT');
---INSERT INTO EMPLOYEE VALUES (5, 'Suchita Roy','HR');
+INSERT INTO EMPLOYEE VALUES (1, 'Raman Hari','IT');
+INSERT INTO EMPLOYEE VALUES (2, 'Sahil Shah','HR');
+INSERT INTO EMPLOYEE VALUES (3, 'Akshay Shaligram','OPs');
+INSERT INTO EMPLOYEE VALUES (4, 'Akshata Joshi','IT');
+INSERT INTO EMPLOYEE VALUES (5, 'Suchita Roy','HR');

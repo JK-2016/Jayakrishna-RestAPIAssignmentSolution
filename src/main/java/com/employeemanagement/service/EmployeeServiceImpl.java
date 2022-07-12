@@ -1,7 +1,7 @@
 package com.employeemanagement.service;
 
 import com.employeemanagement.dao.EmployeeRepository;
-import com.employeemanagement.entity.Employee;
+import com.employeemanagement.dao.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
