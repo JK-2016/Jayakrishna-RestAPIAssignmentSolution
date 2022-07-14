@@ -14,10 +14,11 @@ import javax.persistence.*;
 @EqualsAndHashCode(exclude = "user")
 public class Role {
     @Id
+    @Column(name = "role_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String role;
-    @ManyToOne
-    @JoinColumn(name = "user_id",nullable = false)
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id",nullable = false)
+//    private User user;
 }
