@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,7 +31,7 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
 //    private Set<Role> roles;
-    private List<Role> roles;
+    private List<Role> roles = new ArrayList<>();
     private String password;
 //     public  void  addRole(Role role){
 //         if(this.roles==null){

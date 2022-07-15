@@ -10,12 +10,12 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "roles")
-@ToString(exclude = "user")
-@EqualsAndHashCode(exclude = "user")
+//@ToString(exclude = "user")
+//@EqualsAndHashCode(exclude = "user")
 public class Role {
     @Id
     @Column(name = "role_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String role;
 //    @ManyToOne

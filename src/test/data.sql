@@ -11,3 +11,11 @@ INSERT INTO ROLES VALUES(2,'USER');
 INSERT INTO USERS VALUES(1,'admin','admin');
 INSERT INTO USERS VALUES(2,'user',user);
 
+INSERT INTO users_roles VALUES(1,1);
+INSERT INTO users_roles VALUES(2,2);
+
+select * FROM users;
+select * from users_roles;
+select * from roles;
+
+--delete from users_roles;
