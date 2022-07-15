@@ -1,13 +1,13 @@
-package com.employeemanagement.employeeCRUDApplication;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class EmployeeCrudApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
-}
+//package com.employeemanagement.employeeCRUDApplication;
+//
+//import org.junit.jupiter.api.Test;
+//import org.springframework.boot.test.context.SpringBootTest;
+//
+//@SpringBootTest
+//class EmployeeCrudApplicationTests {
+//
+//	@Test
+//	void contextLoads() {
+//	}
+//
+//}

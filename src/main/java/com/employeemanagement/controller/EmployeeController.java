@@ -5,12 +5,14 @@ import com.employeemanagement.dao.entity.Role;
 import com.employeemanagement.service.EmployeeServiceImpl;
 import com.employeemanagement.service.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-//@RequestMapping("/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
     @Autowired
     private EmployeeServiceImpl employeeService;
@@ -25,16 +27,32 @@ public class EmployeeController {
     public Employee addEmployee(@RequestBody Employee employee){
         return employeeService.addEmployee(employee);
     }
+
     @DeleteMapping("/{id}")
     public void deleteEmployee(@PathVariable Long id){
         employeeService.deleteById(id);
     }
-
-    @PostMapping(value="/addRole")
-    public Role addRole(@RequestBody Role role){
-        return roleService.addRole(role);
+    @GetMapping("/{id}")
+    public Optional<Employee> getEmployee(@PathVariable Long id){
+        return employeeService.getEmployeeByID(id);
     }
 
+
+
+    @PutMapping(value="/update")
+    public Employee updateEmployee(@RequestBody Employee employee){
+        return employeeService.updateEmployee(employee);
+    }
+
+    @GetMapping("/getCustomSortedByName")
+    public List<Employee> getEmployeesCustomSortedByName(Sort.Direction direction) {
+        return employeeService.getEmployeesCustomSortedByName(direction);
+    }
+
+    @GetMapping("/search")
+    public List<Employee> searchEmployeeByName(String name){
+        return employeeService.searchEmployeeByName(name);
+    }
 
 
 
