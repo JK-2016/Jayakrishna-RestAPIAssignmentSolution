@@ -51,9 +51,10 @@ public class EmployeeServiceImpl {
                 .withMatcher("name", ExampleMatcher.GenericPropertyMatchers.exact())
                 .withIgnorePaths("id", "department");
         Example<Employee> example = Example.of(demoEmployee, exampleMatcher);
+//        Example<Employee> example = Example.of(demoEmployee);
 
-        List<Employee> list = employeeRepository.findAll(example);
-        return list;
+        return employeeRepository.findAll(example);
+
     }
 
 }
