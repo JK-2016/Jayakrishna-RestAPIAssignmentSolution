@@ -17,5 +17,9 @@ public class UserServiceImpl  {
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
+    public void deleteBYId(Long id){
+         userRepository.deleteById(id);
+    }
+
 
 }

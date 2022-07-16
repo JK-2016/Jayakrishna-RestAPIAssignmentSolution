@@ -24,7 +24,7 @@ public class EmployeeServiceImpl {
         return employeeRepository.findAll();
     }
 
-    public void deleteById(Long id){
+    public void deleteById(long id){
         employeeRepository.deleteById(id);
     }
 
