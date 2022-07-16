@@ -39,17 +39,17 @@ public class EmployeeServiceImpl {
 //        employeeRepository.
 //    }
 
-    public List<Employee> getEmployeesCustomSortedByName(Sort.Direction direction) {
-         return employeeRepository.findAll(Sort.by(direction, "name"));
+    public List<Employee> getEmployeesCustomSortedByFirstName(Sort.Direction direction) {
+         return employeeRepository.findAll(Sort.by(direction, "firstName"));
     }
 
-    public List<Employee> searchEmployeeByName(String name){
+    public List<Employee> searchEmployeeByFirstName(String fName){
         Employee demoEmployee = new Employee();
-        demoEmployee.setName(name);
+        demoEmployee.setFirstName(fName);
 
         ExampleMatcher exampleMatcher = ExampleMatcher.matching()
-                .withMatcher("name", ExampleMatcher.GenericPropertyMatchers.exact())
-                .withIgnorePaths("id", "department");
+                .withMatcher("firstName", ExampleMatcher.GenericPropertyMatchers.exact())
+                .withIgnorePaths("id", "lastName","email");
         Example<Employee> example = Example.of(demoEmployee, exampleMatcher);
 //        Example<Employee> example = Example.of(demoEmployee);
 

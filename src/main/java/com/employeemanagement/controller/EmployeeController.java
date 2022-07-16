@@ -44,14 +44,14 @@ public class EmployeeController {
         return employeeService.updateEmployee(employee);
     }
 
-    @GetMapping("/getCustomSortedByName")
+    @GetMapping("/getCustomSortedByFirstName")
     public List<Employee> getEmployeesCustomSortedByName(Sort.Direction direction) {
-        return employeeService.getEmployeesCustomSortedByName(direction);
+        return employeeService.getEmployeesCustomSortedByFirstName(direction);
     }
 
     @GetMapping("/search")
-    public List<Employee> searchEmployeeByName(String name){
-        return employeeService.searchEmployeeByName(name);
+    public List<Employee> searchEmployeeByFirstName(String fname){
+        return employeeService.searchEmployeeByFirstName(fname);
     }
 
 

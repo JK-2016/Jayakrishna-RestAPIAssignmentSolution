@@ -17,7 +17,11 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="EMP_SEQ")
-    Long id ;
-    String name;
-    String department;
+    private Long id ;
+    @Column
+    private String firstName;
+    @Column
+    private String lastName;
+    @Column
+    private String email;
 }
