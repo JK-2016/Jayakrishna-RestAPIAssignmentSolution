@@ -14,8 +14,5 @@ INSERT INTO USERS VALUES(2,'user','user');
 INSERT INTO users_roles VALUES(1,1);
 INSERT INTO users_roles VALUES(2,2);
 
-select * FROM users;
-select * from users_roles;
-select * from roles;
-select * from EMPLOYEE;
+
 
