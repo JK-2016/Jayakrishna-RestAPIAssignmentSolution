@@ -13,9 +13,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "EMPLOYEE")
+@SequenceGenerator(name="EMP_SEQ", sequenceName="employee_sequence",allocationSize = 1)
 public class Employee {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="EMP_SEQ")
     Long id ;
     String name;
     String department;

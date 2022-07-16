@@ -12,10 +12,11 @@ import javax.persistence.*;
 @Table(name = "roles")
 //@ToString(exclude = "user")
 //@EqualsAndHashCode(exclude = "user")
+@SequenceGenerator(name="Role_SEQ", sequenceName="role_sequence",allocationSize = 1)
 public class Role {
     @Id
     @Column(name = "role_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Role_SEQ")
     private Long id;
     private String role;
 //    @ManyToOne

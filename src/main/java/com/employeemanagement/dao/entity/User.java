@@ -17,10 +17,11 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name="users")
+@SequenceGenerator(name="User_SEQ", sequenceName="user_sequence",allocationSize = 1)
 public class User {
     @Id
     @Column(name = "user_id")
-    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="User_SEQ")
     private Long id;
     private String name;
 //    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
