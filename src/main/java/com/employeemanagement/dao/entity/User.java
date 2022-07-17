@@ -25,14 +25,14 @@ public class User {
     private Long id;
     private String name;
 //    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST , CascadeType.REFRESH , CascadeType.DETACH} , fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-//    private Set<Role> roles;
-    private List<Role> roles ;
+    private List<Role> roles;
+//    private List<Role> roles ;
 //    private List<Role> roles = new ArrayList<>();
     private String password;
 //     public  void  addRole(Role role){
