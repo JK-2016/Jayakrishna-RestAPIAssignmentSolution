@@ -5,6 +5,8 @@ import com.employeemanagement.dao.entity.Role;
 
 import com.employeemanagement.service.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +19,9 @@ public class RoleController {
 
     @GetMapping("/")
     public List<Role> getAllRoles(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("Username:"+authentication.getName());
+        System.out.println("Principal:"+authentication.getAuthorities());
         return roleService.getAllRoles();
     }
 

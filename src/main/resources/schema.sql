@@ -10,5 +10,5 @@
     select * from EMPLOYEE;
 --    Modify the satring values of Sequence considering already inserted values
     ALTER SEQUENCE employee_sequence RESTART WITH 6;
-    ALTER SEQUENCE role_sequence RESTART WITH 3;
-    ALTER SEQUENCE user_sequence RESTART WITH 3;
+    ALTER SEQUENCE role_sequence RESTART WITH 1;
+    ALTER SEQUENCE user_sequence RESTART WITH 1;

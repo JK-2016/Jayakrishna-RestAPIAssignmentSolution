@@ -30,13 +30,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	    @Bean
 	    public DaoAuthenticationProvider authenticationProvider() {
 	        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+//			The below line links authentication provider with data base by using UserDetailsService
 	        authProvider.setUserDetailsService(userDetailsService());
+//			Password encoder is Set by below statement
 	        authProvider.setPasswordEncoder(passwordEncoder());
 
 	        return authProvider;
 	    }
 
 	    @Override
+//		Authentication Config for Spring Security
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 	        auth.authenticationProvider(authenticationProvider());
 
@@ -44,26 +47,47 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 			// In-memory authentication, method chaining
 			auth.inMemoryAuthentication()
-                .withUser("admin").password(encoder.encode("admin")).authorities("ADMIN");
+                .withUser("admin")
+				.password(encoder.encode("admin"))
+			    .authorities("ADMIN");
+//				.and()
+//				.withUser("user")
+//				.password(encoder.encode("user"))
+//				.authorities("USER") ;
 ////				.withUser("user").password(encoder.encode("user")).roles("USER");
 //					.withUser("admin").password("admin").roles("ADMIN")
+
 	    }
 
 	    @Override
+//		Authorization Config for Spring Security
 	    protected void configure(HttpSecurity http) throws Exception {
-	        http.authorizeRequests()
-	            .antMatchers("/api/employees/*").hasAnyAuthority("USER","ADMIN")
-	            .antMatchers("/api/employees/add","/api/roles/*","/api/users/*").hasAuthority("ADMIN")
-	            .anyRequest().authenticated()
-	            .and()
-	            .formLogin().loginProcessingUrl("/login")
-//					.successForwardUrl("/api/")
-					.permitAll()
+
+	        http
+
+
+					.authorizeRequests()
+					.antMatchers("api/roles/","api/roles/add","api/users/","/api/users/add").hasAuthority("ADMIN")
+//					.anyRequest().authenticated()
+					.and()
+					.httpBasic()
+////	            .antMatchers("api/employees/add","api/roles/","api/roles/**","api/users/**").hasRole("ADMIN")
+////	            .antMatchers("api/employees/**").hasAnyRole("USER","ADMIN")
+//
 //	            .and()
-//	            .logout().logoutSuccessUrl("/login").permitAll()
+//	            .formLogin().loginProcessingUrl("/login")
+////					.successForwardUrl("/api/employees")
+//		 			.permitAll()
 //	            .and()
-//	            .exceptionHandling().accessDeniedPage("/api/403")
+//	            .logout()
+//					.permitAll()
+//					.and()
+//				.httpBasic()
+////					.logoutSuccessUrl("/login")
+//	            .and()
+////	            .exceptionHandling().accessDeniedPage("/api/403")
 	            .and()
+//					csrf needs to be disabled for performing post requests
 	            .cors().and().csrf().disable();
 	    }
 	@Bean
