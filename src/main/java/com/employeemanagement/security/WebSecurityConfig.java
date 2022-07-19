@@ -62,33 +62,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	    @Override
 //		Authorization Config for Spring Security
 	    protected void configure(HttpSecurity http) throws Exception {
-
-	        http
-
-
-					.authorizeRequests()
-					.antMatchers("api/roles/","api/roles/add","api/users/","/api/users/add").hasAuthority("ADMIN")
+			http.authorizeRequests()
+//					.antMatchers("/api/employees/").hasAnyAuthority("ADMIN","USER")
+					.antMatchers("/api/employees/**").permitAll()
+					.antMatchers("/api/employees/add").hasAuthority("ADMIN")
+					.antMatchers("/**").hasAuthority("ADMIN")
+//					.antMatchers("/api/employees/add").hasAuthority("ADMIN")
 //					.anyRequest().authenticated()
-					.and()
-					.httpBasic()
-////	            .antMatchers("api/employees/add","api/roles/","api/roles/**","api/users/**").hasRole("ADMIN")
-////	            .antMatchers("api/employees/**").hasAnyRole("USER","ADMIN")
-//
-//	            .and()
-//	            .formLogin().loginProcessingUrl("/login")
-////					.successForwardUrl("/api/employees")
-//		 			.permitAll()
-//	            .and()
-//	            .logout()
-//					.permitAll()
-//					.and()
-//				.httpBasic()
-////					.logoutSuccessUrl("/login")
-//	            .and()
-////	            .exceptionHandling().accessDeniedPage("/api/403")
-	            .and()
+					.and().httpBasic()
 //					csrf needs to be disabled for performing post requests
-	            .cors().and().csrf().disable();
+					.and().cors() .and().csrf().disable();
+
 	    }
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
