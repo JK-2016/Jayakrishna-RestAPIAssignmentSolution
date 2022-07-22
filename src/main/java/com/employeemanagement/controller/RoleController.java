@@ -19,9 +19,9 @@ public class RoleController {
 
     @GetMapping("/")
     public List<Role> getAllRoles(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        System.out.println("Username:"+authentication.getName());
-        System.out.println("Principal:"+authentication.getAuthorities());
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        System.out.println("Username:"+authentication.getName());
+//        System.out.println("Principal:"+authentication.getAuthorities());
         return roleService.getAllRoles();
     }
 

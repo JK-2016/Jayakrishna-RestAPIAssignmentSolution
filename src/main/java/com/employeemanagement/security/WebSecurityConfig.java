@@ -43,21 +43,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 //		Authentication Config for Spring Security
 
 	    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//	        auth.authenticationProvider(authenticationProvider());
+	        auth.authenticationProvider(authenticationProvider());
 
 
 			PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 			// In-memory authentication, method chaining
-			auth.inMemoryAuthentication()
-                .withUser("admin")
-//				.password(encoder.encode("admin"))
-				.password(passwordEncoder().encode("admin"))
-			    .authorities("ADMIN");
-			auth.inMemoryAuthentication()
-				.withUser("user")
-				.password(passwordEncoder().encode("user"))
-//				.password(encoder.encode("user"))
-				.authorities("USER") ;
+//			auth.inMemoryAuthentication()
+//                .withUser("admin")
+////				.password(encoder.encode("admin"))
+//				.password(passwordEncoder().encode("admin"))
+//			    .authorities("ADMIN");
+//			auth.inMemoryAuthentication()
+//				.withUser("user")
+//				.password(passwordEncoder().encode("user"))
+////				.password(encoder.encode("user"))
+//				.authorities("USER") ;
 ////				.withUser("user").password(encoder.encode("user")).roles("USER");
 //					.withUser("admin").password("admin").roles("ADMIN")
 
@@ -73,8 +73,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
 				 .antMatchers("/employees/add").hasAuthority("ADMIN")
 				 .antMatchers(HttpMethod.DELETE,"/employees/*").hasAuthority("ADMIN")
-				 .antMatchers("/roles/*").hasAuthority("ADMIN")
-				 .antMatchers("/users/*").hasAuthority("ADMIN")
+//				 .antMatchers("/roles/*").hasAuthority("ADMIN")
+//				 .antMatchers("/users/*").hasAuthority("ADMIN")
+                 .antMatchers("/roles/*").permitAll()
+				 .antMatchers("/users/*").permitAll()
 				 .anyRequest().authenticated()
 				 .and() .formLogin()
 				 .and() .httpBasic().and().cors().and().csrf().disable();

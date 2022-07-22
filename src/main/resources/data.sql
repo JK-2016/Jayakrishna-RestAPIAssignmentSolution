@@ -4,6 +4,7 @@ INSERT INTO EMPLOYEE (id,first_Name,last_Name,email) VALUES  (2, 'Sahil', 'Shah'
 INSERT INTO EMPLOYEE (id,first_Name,last_Name,email) VALUES  (3, 'Akshay', 'Shaligram','OPs@gmail.com');
 INSERT INTO EMPLOYEE (id,first_Name,last_Name,email) VALUES  (4, 'Akshata', 'Joshi','IT@gmail.com');
 INSERT INTO EMPLOYEE (id,first_Name,last_Name,email) VALUES  (5, 'Suchita', 'Roy','HR@gmail.com');
+INSERT INTO EMPLOYEE (id,first_Name,last_Name,email) VALUES  (6, 'Suchita', 'Shetty','HR2@gmail.com');
 
 --INSERT INTO ROLES VALUES(1,'ADMIN');
 --INSERT INTO ROLES VALUES(2,'USER');

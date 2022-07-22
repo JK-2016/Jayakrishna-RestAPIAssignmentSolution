@@ -6,6 +6,8 @@ import com.employeemanagement.service.EmployeeServiceImpl;
 import com.employeemanagement.service.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +22,9 @@ public class EmployeeController {
 
     @GetMapping("/")
     public List<Employee> getAllEmployees(){
-
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        System.out.println("Username:"+authentication.getName());
+//        System.out.println("Authorities:"+authentication.getAuthorities());
         return employeeService.getAllEmployees();
     }
     @PostMapping(value = "/add",consumes = {"application/json"})
